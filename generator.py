@@ -54,7 +54,7 @@ table {
 }"""
 
 
-name_doc_html = input("Nom du document ('Document' par défaut) : \n")
+name_doc_html = input("Nom du document ? ('Document' par défaut) : \n")
 if name_doc_html :
     html_code = f"""<!DOCTYPE html>
     <html lang="en">
@@ -62,9 +62,9 @@ if name_doc_html :
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="style.css">
-        <script defer src="script.js"></script>
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <script defer src="scripts/script.js"></script>
         <title>{name_doc_html}</title>
     </head>
     <body>
@@ -78,9 +78,9 @@ else :
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="style.css">
-        <script defer src="script.js"></script>
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <script defer src="scripts/script.js"></script>
         <title>Document</title>
     </head>
     <body>
@@ -92,12 +92,22 @@ html = open("index.html", "w", encoding="utf-8")
 html.write(html_code)
 html.close()
 
+
+# Création des dossiers
+os.mkdir("styles")
+os.mkdir("scripts")
+os.mkdir("images")
+os.mkdir("fonts")
+
+# Création des fichiers style et script
+os.chdir(r"C:\Users\Thomas\Desktop\generator-AppWeb\styles")
+
 sass = open("style.scss", "w", encoding="utf-8")
 sass.close()
 
 reset = open("reset.css", "w", encoding="utf-8")
 reset.write(reset_code)
 reset.close()
-
+os.chdir(r"C:\Users\Thomas\Desktop\generator-AppWeb\scripts")
 script = open("script.js", "w", encoding="utf-8")
 script.close()
