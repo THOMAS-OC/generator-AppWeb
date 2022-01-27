@@ -1,5 +1,5 @@
 import os
-from struct import pack
+
 
 
 #Création du dossier projet
@@ -14,7 +14,6 @@ else :
 
 # On se place dans le dossier crée
 os.chdir(r"C:\Users\Thomas\Desktop\{}".format(name_folder_project))
-
 
 package_code = """{
   "name": "nouveau-dossier",
@@ -119,7 +118,9 @@ else :
 html = open("index.html", "w", encoding="utf-8")
 html.write(html_code)
 html.close()
-
+git = open(".gitignore", "w", encoding="utf-8")
+git.write("git.py\n*txt")
+git.close()
 
 # Création des dossiers
 os.mkdir("styles")
@@ -152,6 +153,18 @@ reset.close()
 os.chdir(r"C:\Users\Thomas\Desktop\{}\scripts".format(name_folder_project))
 script = open("script.js", "w", encoding="utf-8")
 script.close()
+
+#Versionning
+os.chdir(r"C:\Users\Thomas\Desktop\{}".format(name_folder_project))
+
+versionning = int(input("Voulez-vous versionner ce projet ? 1 : OUI 2 : NON \n >>>  "))
+if versionning == 1 :
+    os.system("git init")
+    os.system("git add .")
+    os.system('git commit -m "Structure du projet mise en place" ')
+
+else :
+    pass
 
 #Lancement de VS code
 open_vs_code = int(input("Voulez-vous ourvir le projet dans VScode ? 1 : OUI 2 : NON \n >>>  "))
