@@ -119,7 +119,7 @@ html = open("index.html", "w", encoding="utf-8")
 html.write(html_code)
 html.close()
 git = open(".gitignore", "w", encoding="utf-8")
-git.write("git.py\n*txt")
+git.write("git.py\n*txt\nsass_generate.py")
 git.close()
 
 # Création des dossiers
@@ -175,9 +175,17 @@ if open_vs_code == 1 :
     os.chdir(r"C:\Users\Thomas\Desktop\{}".format(name_folder_project))
     os.system("code .")
     os.system("code index.html")
-    os.system("code styles/style.scss")
-    os.system("code scripts/script.js")
-    if css_or_scss == 1 :
+    
+    if css_or_scss == 2 :
+        os.system("code styles/style.css")
+        os.system("code scripts/script.js")
+
+    elif css_or_scss == 1 :
+        os.system("code styles/style.scss")
+        os.system("code scripts/script.js")
+        sass_py = open("sass_generate.py", "w", encoding="utf-8")
+        sass_py.write("import os\nos.system('npm run sass')")
+        sass_py.close()
         os.system("npm run sass")
     else :
         pass
