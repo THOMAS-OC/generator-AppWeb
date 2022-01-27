@@ -16,8 +16,7 @@ else :
 os.chdir(r"C:\Users\Thomas\Desktop\{}".format(name_folder_project))
 
 
-package_code = """
-{
+package_code = """{
   "name": "nouveau-dossier",
   "version": "1.0.0",
   "description": "",
@@ -134,8 +133,9 @@ css_or_scss = int(input("Souhaitez-vous écrire du code sass ou bien du code css
 if css_or_scss == 1 :
     css = open("style.scss", "w", encoding="utf-8")
     css.close()
+    os.chdir(r"C:\Users\Thomas\Desktop\{}".format(name_folder_project))
     package = open("package.json", "w", encoding="utf-8")
-    html.write(package_code)
+    package.write(package_code)
     package.close()
 elif css_or_scss == 2 :
     css = open("style.css", "w", encoding="utf-8")
