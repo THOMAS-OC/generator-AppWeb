@@ -101,13 +101,32 @@ os.mkdir("fonts")
 
 # Création des fichiers style et script
 os.chdir(r"C:\Users\Thomas\Desktop\generator-AppWeb\styles")
+css_or_scss = int(input("Souhaitez-vous écrire du code sass ou bien du code css classique ? 1 : SASS 2 : CSS classique \n >>>  "))
+if css_or_scss == 1 :
+    css = open("style.scss", "w", encoding="utf-8")
+    css.close()
+elif css_or_scss == 2 :
+    css = open("style.css", "w", encoding="utf-8")
+    css.close()
+else :
+    css = open("style.scss", "w", encoding="utf-8")
+    css.close()
 
-sass = open("style.scss", "w", encoding="utf-8")
-sass.close()
 
 reset = open("reset.css", "w", encoding="utf-8")
 reset.write(reset_code)
 reset.close()
+
 os.chdir(r"C:\Users\Thomas\Desktop\generator-AppWeb\scripts")
 script = open("script.js", "w", encoding="utf-8")
 script.close()
+
+#Lancement de VS code
+open_vs_code = int(input("Voulez-vous ourvir le projet dans VScode ? 1 : OUI 2 : NON \n >>>  "))
+if open_vs_code == 1 :
+    os.chdir(r"C:\Users\Thomas\Desktop\generator-AppWeb")
+    os.system("code .")
+
+else :
+    pass
+
