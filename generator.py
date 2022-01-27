@@ -1,6 +1,14 @@
 import os
-
-
+#Création du dossier projet
+os.chdir(r"C:\Users\Thomas\Desktop")
+name_folder_project = input("Comment voulez-vous nommer votre projet ?")
+if name_folder_project :
+    os.mkdir(name_folder_project)
+else :
+    os.mkdir("APP_FRONT-END")
+    name_folder_project = "APP_FRONT-END"
+# On se place dans le dossier crée
+os.chdir(r"C:\Users\Thomas\Desktop\" + name_folder_project)
 
 reset_code = """
 /* http://meyerweb.com/eric/tools/css/reset/ 
