@@ -1,4 +1,6 @@
 import os
+
+
 #Création du dossier projet
 os.chdir(r"C:\Users\Thomas\Desktop")
 name_folder_project = input("Comment voulez-vous nommer votre projet ?")
@@ -7,8 +9,10 @@ if name_folder_project :
 else :
     os.mkdir("APP_FRONT-END")
     name_folder_project = "APP_FRONT-END"
+
+
 # On se place dans le dossier crée
-os.chdir(r"C:\Users\Thomas\Desktop\" + name_folder_project)
+os.chdir(r"C:\Users\Thomas\Desktop\{}".format(name_folder_project))
 
 reset_code = """
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -108,7 +112,7 @@ os.mkdir("images")
 os.mkdir("fonts")
 
 # Création des fichiers style et script
-os.chdir(r"C:\Users\Thomas\Desktop\generator-AppWeb\styles")
+os.chdir(r"C:\Users\Thomas\Desktop\{}\styles".format(name_folder_project))
 css_or_scss = int(input("Souhaitez-vous écrire du code sass ou bien du code css classique ? 1 : SASS 2 : CSS classique \n >>>  "))
 if css_or_scss == 1 :
     css = open("style.scss", "w", encoding="utf-8")
@@ -125,14 +129,14 @@ reset = open("reset.css", "w", encoding="utf-8")
 reset.write(reset_code)
 reset.close()
 
-os.chdir(r"C:\Users\Thomas\Desktop\generator-AppWeb\scripts")
+os.chdir(r"C:\Users\Thomas\Desktop\{}\scripts".format(name_folder_project))
 script = open("script.js", "w", encoding="utf-8")
 script.close()
 
 #Lancement de VS code
 open_vs_code = int(input("Voulez-vous ourvir le projet dans VScode ? 1 : OUI 2 : NON \n >>>  "))
 if open_vs_code == 1 :
-    os.chdir(r"C:\Users\Thomas\Desktop\generator-AppWeb")
+    os.chdir(r"C:\Users\Thomas\Desktop\{}".format(name_folder_project))
     os.system("code .")
 
 else :
