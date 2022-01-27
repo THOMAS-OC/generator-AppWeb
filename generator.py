@@ -134,6 +134,9 @@ css_or_scss = int(input("Souhaitez-vous écrire du code sass ou bien du code css
 if css_or_scss == 1 :
     css = open("style.scss", "w", encoding="utf-8")
     css.close()
+    """On crée aussi le fichier css pour qu'il soit suivi par git ! """
+    css = open("style.css", "w", encoding="utf-8")
+    css.close()
     os.chdir(r"C:\Users\Thomas\Desktop\{}".format(name_folder_project))
     package = open("package.json", "w", encoding="utf-8")
     package.write(package_code)
@@ -171,6 +174,9 @@ open_vs_code = int(input("Voulez-vous ourvir le projet dans VScode ? 1 : OUI 2 :
 if open_vs_code == 1 :
     os.chdir(r"C:\Users\Thomas\Desktop\{}".format(name_folder_project))
     os.system("code .")
+    os.system("code index.html")
+    os.system("code styles/style.scss")
+    os.system("code scripts/script.js")
     if css_or_scss == 1 :
         os.system("npm run sass")
     else :
