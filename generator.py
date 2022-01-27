@@ -144,7 +144,7 @@ else :
     css = open("style.scss", "w", encoding="utf-8")
     css.close()
 
-
+os.chdir(r"C:\Users\Thomas\Desktop\{}\styles".format(name_folder_project))
 reset = open("reset.css", "w", encoding="utf-8")
 reset.write(reset_code)
 reset.close()
